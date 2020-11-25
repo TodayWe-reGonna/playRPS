@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-    <therps msg="Welcome to Your Vue.js App"/>
+    <therps/>
   </div>
 </template>
 

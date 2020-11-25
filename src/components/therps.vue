@@ -144,11 +144,8 @@ export default {
     onPlay: function() {
     
       
-      if (this.selection != "Pick One" && this.gameCount < this.bestOf) {
-        if (
-          this.pWin < this.gameCount / 2 + 1 &&
-          this.cWin < this.gameCount / 2 + 1
-        ) {
+      if (this.selection != "Pick One" ) {
+        if ((this.pWin<this.bestOf/2 && this.cWin<this.bestOf/2)) {
           this.gameCount++;
           let pScore = this.pWin;
           let cScore = this.cWin;
@@ -205,6 +202,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+table{
+  margin:auto
+}
 .button-row {
   display: inline;
   margin: auto;
