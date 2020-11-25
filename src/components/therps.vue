@@ -42,7 +42,7 @@
         <h2>{{selection}}</h2>
       </div>
       <div>
-        <button type="sumit" @click="onPlay">PLAY</button>
+        <button type="sumit" @click="onPlay" v-if="(this.pWin<this.bestOf/2 && this.cWin<this.bestOf/2)" >PLAY</button>
       </div>
       <div V-if="compSelection">
         <h2>Computer Plays:</h2>
