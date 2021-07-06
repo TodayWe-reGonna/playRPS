@@ -7,21 +7,26 @@
       </label>
       <div>
         <select name="gameNumber" v-model="bestOf" style="width:auto">
-          <option >--Select Number of Rounds--</option>
+          <option>--Select Number of Rounds--</option>
           <option value="3">Best 2 out of 3</option>
           <option value="5">Best 3 out of 5</option>
           <option value="7">Best 4 out of 7</option>
         </select>
 
-        <p style="margin:15px" v-if="bestOf">Best of: {{bestOf}}</p>
+        <p style="margin:15px" v-if="bestOf">BEST OF: {{ bestOf }}</p>
 
-        <button @click="getNums" v-if="bestOf>0">Let's Go</button>
+        <button @click="getNums" v-if="bestOf > 0">LET'S GO!</button>
       </div>
     </div>
     <div id="game" v-if="selected">
-      <h2>Playing the best {{bestOf/2+.5}} out of {{bestOf}}</h2>
+      <h2>Playing the best {{ bestOf / 2 + 0.5 }} OUT OF {{ bestOf }}</h2>
       <div class="button-row">
-        <img class="rock" src="../assets/therock.png" alt="rock" @click="rockCounter" />
+        <img
+          class="rock"
+          src="../assets/therock.png"
+          alt="rock"
+          @click="rockCounter"
+        />
 
         <img
           class="paper"
@@ -39,36 +44,51 @@
         />
       </div>
       <div>
-        <h2>{{selection}}</h2>
+        <h2>{{ selection }}</h2>
       </div>
       <div>
-        <button type="sumit" @click="onPlay" v-if="(this.pWin<this.bestOf/2 && this.cWin<this.bestOf/2)" >PLAY</button>
+        <button
+          type="sumit"
+          @click="onPlay"
+          v-if="this.pWin < this.bestOf / 2 && this.cWin < this.bestOf / 2"
+        >
+          PLAY
+        </button>
       </div>
       <div V-if="compSelection">
         <h2>Computer Plays:</h2>
-        <h3>{{compSelection}}</h3>
-        <h3>{{winner}}</h3>
+        <h3>{{ compSelection }}</h3>
+        <h3>{{ winner }}</h3>
       </div>
       <div></div>
       <div class="table-div">
         <table class="table">
           <tr class="thead">
-            <thead>And the Winner is:</thead>
+            <thead>
+              And the Winner is:
+            </thead>
           </tr>
           <tr>
             <td>PERSON</td>
             <td>COMPY</td>
           </tr>
           <tr>
-            <td>{{pWin}}</td>
-            <td>{{cWin}}</td>
+            <td>{{ pWin }}</td>
+            <td>{{ cWin }}</td>
           </tr>
         </table>
       </div>
       <br />
-      <button class="butt1" style="fontsize:58px" type="button" @click="onReset">Reset?</button>
+      <button
+        class="butt1"
+        style="fontsize:58px"
+        type="button"
+        @click="onReset"
+      >
+        Reset?
+      </button>
 
-      <div>Games: {{gameCount}} / {{bestOf}} </div>
+      <div>Games: {{ gameCount }} / {{ bestOf }}</div>
     </div>
   </div>
 </template>
@@ -78,7 +98,7 @@ export default {
   name: "therps",
 
   props: {
-    msg: String
+    msg: String,
   },
 
   data: function() {
@@ -95,7 +115,7 @@ export default {
       tieCount: 0,
       bestOf: null,
       compPlays: [],
-      selected: false
+      selected: false,
     };
   },
 
@@ -124,7 +144,7 @@ export default {
       } else {
         return undefined;
       }
-    }
+    },
   },
 
   methods: {
@@ -142,10 +162,8 @@ export default {
     },
 
     onPlay: function() {
-    
-      
-      if (this.selection != "Pick One" ) {
-        if ((this.pWin<this.bestOf/2 && this.cWin<this.bestOf/2)) {
+      if (this.selection != "Pick One") {
+        if (this.pWin < this.bestOf / 2 && this.cWin < this.bestOf / 2) {
           this.gameCount++;
           let pScore = this.pWin;
           let cScore = this.cWin;
@@ -195,15 +213,15 @@ export default {
 
     getNums: function() {
       this.selected = !this.selected;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-table{
-  margin:auto
+table {
+  margin: auto;
 }
 .button-row {
   display: inline;
@@ -229,7 +247,7 @@ table{
   border: none;
   cursor: pointer;
   max-height: 250px;
-  width: auto
+  width: auto;
 }
 
 h3 {
