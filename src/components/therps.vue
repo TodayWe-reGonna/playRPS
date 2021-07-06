@@ -2,8 +2,9 @@
   <div class="hello">
     <div id="rounds-selection" v-if="!selected">
       <label for="roundsNumber">
-        <h1>Welcome to The Rock / Paper / Scissors</h1>
-        <h2>How Many Rounds do you want to play?</h2>
+        <h1>WELCOME</h1>
+        <h2>The Rock / Paper / Scissors Awaits!<h2>
+        <h3>How Many Rounds do you want to play?</h3>
       </label>
       <div>
         <select name="gameNumber" v-model="bestOf" style="width:auto">
